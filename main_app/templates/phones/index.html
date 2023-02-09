@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Phone List</h1>
+
+{% for phone in phones %}
+<div class="card">
+  <a href="{% url 'detail' phone.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ phone.model }}</span>
+      <p>Make: {{ phone.make }}</p>
+      <p>Screen size(inches): {{ phone.screen }}</p>
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}

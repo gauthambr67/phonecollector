@@ -10,6 +10,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
   </head>
   <body>
     <header class="navbar-fixed">
@@ -17,13 +22,15 @@
         <div class="nav-wrapper">
           <ul>
             <li>
-              <a href="/" class="left brand-logo"
+              <a href="{% url 'home' %}" class="left brand-logo"
                 >&nbsp;&nbsp;Phone Collector</a
               >
             </li>
           </ul>
           <ul class="right">
-            <li><a href="/about">About</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'phones_create' %}">Add a Phone</a></li>
+            <li><a href="{% url 'index' %}">View All Phones</a></li>
           </ul>
         </div>
       </nav>
