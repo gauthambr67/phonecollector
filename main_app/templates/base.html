@@ -16,7 +16,7 @@
       href="{% static 'css/style.css' %}"
     />
   </head>
-  <body>
+  <body style="background-color: whitesmoke">
     <header class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
@@ -29,8 +29,20 @@
           </ul>
           <ul class="right">
             <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'accessories_create' %}">Add a Accessory</a>
+            </li>
+            <li>
+              <a href="{% url 'accessories_index' %}">View All Accessories</a>
+            </li>
             <li><a href="{% url 'phones_create' %}">Add a Phone</a></li>
-            <li><a href="{% url 'index' %}">View All Phones</a></li>
+            <li><a href="{% url 'index' %}">View All My Phones</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
